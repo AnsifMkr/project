@@ -8,7 +8,13 @@ const cors = require('cors');
 // Initialize Express app
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+  {
+    origin:["https://deploy-mern-1whq.vercel.app"],
+    methods:["POST","GET"],
+    credentials:true
+  }
+));
 
 // MongoDB connection
 const MONGO_URI = process.env.MONGO_URI || `mongodb+srv://apasproject2025:vZV3SFgEnQ9e73wK@cluster0.mhaam.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
